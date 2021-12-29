@@ -25,7 +25,8 @@ app.get('/', function(req, res) {
     promise.then((t) => {
         titulo = t;
         ytdl(url, { filter: 'audioonly' })
-            .pipe(fs.createWriteStream(titulo + '.mp3'));
+            .pipe(fs.createWriteStream('musics/' + titulo + '.mp3'));
+
         console.log(titulo);
 
         res.send(titulo + '<br>' + port);

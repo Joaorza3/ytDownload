@@ -4,6 +4,8 @@ const ytdl = require('ytdl-core');
 const fs = require('fs');
 const { getInfo } = require('ytdl-core');
 
+const port = process.env.PORT || 3000;
+
 app.get('/', function(req, res) {
     const { url } = req.query;
 
@@ -30,6 +32,4 @@ app.get('/', function(req, res) {
 
 });
 
-app.set('port', process.env.PORT || 8080);
-
-app.listen(3000);
+app.listen(port);

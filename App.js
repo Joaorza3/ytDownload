@@ -5,6 +5,7 @@ const fs = require('fs');
 const { getInfo } = require('ytdl-core');
 
 const port = process.env.PORT || 3000;
+console.log(port);
 
 app.get('/', function(req, res) {
     const { url } = req.query;
@@ -26,9 +27,9 @@ app.get('/', function(req, res) {
         ytdl(url, { filter: 'audioonly' })
             .pipe(fs.createWriteStream(titulo + '.mp3'));
         console.log(titulo);
-    });
 
-    res.send(url);
+        res.send(titulo + '<br>' + port);
+    });
 
 });
 
